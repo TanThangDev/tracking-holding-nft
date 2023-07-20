@@ -35,6 +35,7 @@ Data will be saved to `./data` folder.
 - `holders.json`: List of NFT
 - `listings.json`: List of NFT holders who have listed NFT for sale within certain time period
 - `addresses.json`: List of NFT holders who have listed NFT for sale within certain time period (unique)
+- `addresses.csv`: List of NFT holders who have listed NFT for sale within certain time period (unique)
 
 ## License
 

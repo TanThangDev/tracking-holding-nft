@@ -67,6 +67,10 @@ const trackings = async () => {
     JSON.stringify(uniqueAddresses, null, 2),
     "utf-8"
   );
+
+  // cover to csv
+  const csv = uniqueAddresses.join("\n");
+  fs.writeFileSync("./data/addresses.csv", csv, "utf-8");
 };
 
 trackings();
