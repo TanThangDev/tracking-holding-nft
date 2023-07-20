@@ -1,12 +1,3 @@
-export interface IHolding {
-  nft_id: string;
-  owner_address: string;
-  token_id: string;
-  quantity: number;
-  first_acquired_date: string;
-  last_acquired_date: string;
-}
-
 export interface IListing {
   id: string;
   permalink: string;
