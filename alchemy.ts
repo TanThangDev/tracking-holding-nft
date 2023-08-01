@@ -25,6 +25,33 @@ class AlchemyLib {
     return owners.owners;
   }
 
+  async getOwnersForCollection(address: string, block?: number) {
+    const options = {
+      withTokenBalances: true,
+    };
+    if (block) {
+      options["block"] = block.toString();
+    }
+    const ownerAddresses: any = await this.alchemy.nft.getOwnersForContract(
+      address,
+      options
+    );
+
+    const dataTokenId = ownerAddresses.owners.map((owner: any) => {
+      return owner.tokenBalances.map((token: any) => {
+        return {
+          owner: owner.ownerAddress,
+          tokenId: parseInt(token.tokenId, 16),
+          balance: token.balance,
+        };
+      });
+    });
+
+    const data = dataTokenId.flat();
+
+    return data;
+  }
+
   async blockNumber(timestamp: number) {
     const latestBlockNumber = await this.alchemy.core.getBlockNumber();
 
